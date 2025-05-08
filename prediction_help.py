@@ -25,10 +25,17 @@ def calculate_ls_risk(physical_activity, stress_level):
     return score / 8  
 
 def handle_scaling(df):
+    def handle_scaling(df):
     cols_to_scale = scaler['cols_to_scale']
     scaler_model = scaler['scaler']
+
+    if 'income_level' in df.columns:
+        df.drop('income_level', axis=1, inplace=True)
+
     df[cols_to_scale] = scaler_model.transform(df[cols_to_scale])
+
     return df
+
 
 def preprocess_input(input_dict):
    
