@@ -56,16 +56,19 @@ def calculate_ls_risk(physical_activity,stress_level):
 def preprocess_input(input_dict):
 
     expected_columns = [
-        'age', 'number_of_dependants','smoking_status' ,'income_lakhs', 'insurance_plan','life_style_risk_score','normalized_risk_score',
-        'gender_male', 'region_northwest', 'region_southeast', 'region_southwest', 'marital_status_unmarried',
+        'age', 'number_of_dependants', 'smoking_status', 'income_lakhs', 'insurance_plan',
+        'life_style_risk_score', 'normalized_risk_score',
+        'gender_male', 'region_northwest', 'region_southeast', 'region_southwest', 
+        'marital_status_unmarried',
         'bmi_category_obesity', 'bmi_category_overweight', 'bmi_category_underweight',
         'employment_status_salaried', 'employment_status_self-employed'
     ]
 
     insurance_plan_encoding = {'Bronze': 1, 'Silver': 2, 'Gold': 3}
-    smoking_status_encoding = {'Regular':3,'Occasional':2,'No Smoking':1}
+    smoking_status_encoding = {'Regular': 3, 'Occasional': 2, 'No Smoking': 1}
 
     df = pd.DataFrame(0, columns=expected_columns, index=[0])
+
 
     for key, value in input_dict.items():
         if key == 'Gender' and value == 'Male':
@@ -87,7 +90,7 @@ def preprocess_input(input_dict):
             elif value == 'Underweight':
                 df['bmi_category_underweight'] = 1
         elif key == 'Smoking Status':
-            df['smoking_status'] = smoking_status_encoding.get(value,1)
+            df['smoking_status'] = smoking_status_encoding.get(value, 1)
         elif key == 'Employment Status':
             if value == 'Salaried':
                 df['employment_status_salaried'] = 1
@@ -102,11 +105,15 @@ def preprocess_input(input_dict):
         elif key == 'Income in Lakhs': 
             df['income_lakhs'] = value
 
+
     df['normalized_risk_score'] = calculate_normalized_risk(input_dict['Medical History'])
-    df['life_style_risk_score'] = calculate_ls_risk(input_dict['Physical Activity'],input_dict['Stress Level'])
+    df['life_style_risk_score'] = calculate_ls_risk(input_dict['Physical Activity'], input_dict['Stress Level'])
+    
+
     df = handle_scaling(df)
 
     return df
+
 
 
 def predict(input_dict):
