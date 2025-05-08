@@ -27,7 +27,7 @@ def handle_scaling(df):
     scaler1 = scaler['scaler']
 
     df['income_level'] = None 
-    df[cols_to_scale1] = scaler.transform(df[cols_to_scale1])
+    df[cols_to_scale1] = scaler1.transform(df[cols_to_scale1])
     df.drop('income_level', axis='columns', inplace=True)
 
     return df
