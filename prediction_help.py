@@ -33,9 +33,10 @@ def handle_scaling(df):
     return df
 
 def calculate_ls_risk(physical_activity,stress_level):
-
+    max_score = 8 
+    min_score = 0
     ls1 = physical_activity + stress_level
-    life_style_risk_score = (ls1 - 0)/(8-0)
+    life_style_risk_score = (ls1 - min_score)/(max_score-min_score)
     return life_style_risk_score
 
 
