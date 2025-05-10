@@ -95,9 +95,10 @@ def preprocess_input(input_dict):
 def predict(input_dict):
     input_df = preprocess_input(input_dict)
 
-
+    
     expected_cols = model.get_booster().feature_names
     input_df = input_df[expected_cols]
 
     prediction = model.predict(input_df)
-    return int(prediction[0])
+    return (int(prediction[0]),input_df)
+
