@@ -22,7 +22,7 @@ def calculate_ls_risk(physical_activity, stress_level):
     phy = {"Low": 4, "Medium": 1, "High": 0}
     stress = {"Low": 0, "Medium": 1, "High": 4}
     score = phy.get(physical_activity, 0) + stress.get(stress_level, 0)
-    return score / 8  
+    return (score/8) 
 
 def handle_scaling(df):
     cols_to_scale = scaler['cols_to_scale']
