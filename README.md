@@ -39,10 +39,10 @@ The following input fields are required to predict the healthcare premium:
 * **Medical History:** A string representing any diseases the user has (e.g., "diabetes & heart disease").
 * **Physical Activity:** The user's level of physical activity (Low, Medium, High).
 * **Stress Level:** The user's stress level (Low, Medium, High).
-* **BMI Category:** The user's Body Mass Index (BMI) category (Obesity, Overweight, Underweight).
+* **BMI Category:** The user's Body Mass Index (BMI) category (Obesity, Overweight, Underweight, Normal).
 * **Marital Status:** Whether the user is married or unmarried.
-* **Employment Status:** The user's employment status (Salaried or Self-Employed).
-* **Region:** The region where the user resides (Northwest, Southeast, Southwest).
+* **Employment Status:** The user's employment status (Salaried, Self-Employed, Freelancer).
+* **Region:** The region where the user resides (Northeast ,Northwest, Southeast, Southwest).
 
 ## Model and Approach
 
@@ -60,8 +60,6 @@ The **normalized risk score** is calculated based on the user's medical history.
 
 The **lifestyle risk score** is based on the user's physical activity and stress level. Each factor contributes to a total risk score, which is then normalized between 0 and 1.
 
-## Contributing
 
-Feel free to fork this repository and make improvements. If you encounter bugs or have new feature ideas, please open an issue or submit a pull request.
-
+************************************************************************************************************************************************************************************************
 
