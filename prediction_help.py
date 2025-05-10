@@ -84,8 +84,8 @@ def preprocess_input(input_dict):
         df.at[0, 'employment_status_self-employed'] = 1
 
 
-    df.at[0, 'normalized_risk_score'] = calculate_normalized_risk(input_dict['Medical History'])
     df.at[0, 'life_style_risk_score'] = calculate_ls_risk(input_dict['Physical Activity'], input_dict['Stress Level'])
+    df.at[0, 'normalized_risk_score'] = calculate_normalized_risk(input_dict['Medical History'])
 
 
     df = handle_scaling(df)
